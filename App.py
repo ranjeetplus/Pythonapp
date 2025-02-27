@@ -4,8 +4,8 @@ import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
 
-st.title("Python Application - Data Analysis Project")
-st.write("Data Analysis Project [Pandas, Mathplotlib, GeoPandas & SeaBorn]")
+st.title("Python Application - Project")
+st.write("Data Analysis [Pandas, Mathplotlib, GeoPandas & SeaBorn]")
 st.write("_______________________________________________________________________________________")
 
 # Title of the Streamlit App
