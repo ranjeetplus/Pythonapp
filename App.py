@@ -9,7 +9,7 @@ st.title("State-wise TB Cases in India")
 
 # Load TB Data
 df = pd.read_csv('tb_cases1.csv')
-st.write("## TB Cases Data", df)  # Display data in Streamlit
+
 
 # Load India Map Shapefile
 india_map = gpd.read_file("India_State_Boundary.shp")  # Load the shapefile
@@ -26,3 +26,5 @@ ax.set_title("State-wise TB Cases in India", fontsize=14)
 
 # Display plot in Streamlit
 st.pyplot(fig)
+
+st.write("## TB Cases Data", df)  # Display data in Streamlit
