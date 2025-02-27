@@ -4,8 +4,11 @@ import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
 
+st.title("Python Application - Data Analysis Project [Pandas, Mathplotlib, GeoPandas & SeaBorn]")
+
+
 # Title of the Streamlit App
-st.title("State-wise TB Cases in India")
+st.write("State-wise TB Cases in India")
 
 # Load TB Data
 df = pd.read_csv('tb_cases1.csv')
