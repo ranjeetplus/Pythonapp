@@ -109,4 +109,4 @@ df_data_filtered = df[df["City"] == selected_city]
 
 # Display bar chart
 st.bar_chart(df_data_filtered.set_index("City"))
-st.map(capital_cities)
+
