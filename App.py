@@ -98,7 +98,7 @@ df = pd.DataFrame(data_list, columns=["City", "AQI", "PM2.5", "PM10", "NO2", "SO
 
 # Display the DataFrame
 st.write("## Air Quality of Capital Cities ", df)
-st.write("## --------------------------------------------------------------------------------------------",)
+st.write("## ---------------------------------------------------",)
 
 import streamlit as st
 import pandas as pd
