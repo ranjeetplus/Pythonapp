@@ -101,6 +101,6 @@ st.write("## Air Quality of Capital Cities ", df)
 
 selected_city = st.selectbox("Select a City", list(capital_cities))
 
-df_data = df[capital_cities[selected_city]]
-st.write("City ", df_data)
-st.bar_chart(df_data.T)
+# df_data = df[capital_cities[selected_city]]
+st.write("City ", selected_city)
+st.bar_chart(df_data[df_data["City"] == selected_City])
