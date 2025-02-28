@@ -4,7 +4,7 @@ import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import requests
-
+import seaborn as sns
 
 st.title("Python Application - Project")
 st.write("Data Analysis [Pandas, Mathplotlib, GeoPandas & SeaBorn]")
@@ -99,14 +99,15 @@ df = pd.DataFrame(data_list, columns=["City", "AQI", "PM2.5", "PM10", "NO2", "SO
 # Display the DataFrame
 st.write("## Air Quality of Capital Cities ", df)
 
-selected_city = st.selectbox("Select a City", list(capital_cities.keys()))
+df2 = sns.load_dataset('df')
+grid = sns.FaceGrid(df2, row="City", col="AQI", margin_tiles=True)
+grid.map(plt.hist, bins= np.linspace(0,40,15); 
 
+#selected_city = st.selectbox("Select a City", list(capital_cities.keys()))
 # Display selected city
-st.write("City:", selected_city)
-
+#st.write("City:", selected_city)
 # Filter data for the selected city
-df_data_filtered = df[df["City"] == selected_city]
-
+#df_data_filtered = df[df["City"] == selected_city]
 # Display bar chart
-st.bar_chart(df_data_filtered.set_index("City"))
+#st.bar_chart(df_data_filtered.set_index("City"))
 
