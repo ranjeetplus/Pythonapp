@@ -98,16 +98,40 @@ df = pd.DataFrame(data_list, columns=["City", "AQI", "PM2.5", "PM10", "NO2", "SO
 
 # Display the DataFrame
 st.write("## Air Quality of Capital Cities ", df)
+st.write("## --------------------------------------------------------------------------------------------",)
 
-df2 = sns.load_dataset('df')
-grid = sns.FaceGrid(df2, row="City", col="AQI", margin_tiles=True)
-grid.map(plt.hist, bins= np.linspace(0,40,15); 
+import streamlit as st
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
 
-#selected_city = st.selectbox("Select a City", list(capital_cities.keys()))
-# Display selected city
-#st.write("City:", selected_city)
-# Filter data for the selected city
-#df_data_filtered = df[df["City"] == selected_city]
-# Display bar chart
-#st.bar_chart(df_data_filtered.set_index("City"))
+# Sample Data
+data_list = [
+    ["New Delhi", 350, 150, 180, 40, 20, 0.9, 50],
+    ["Mumbai", 120, 50, 90, 20, 10, 0.4, 30],
+    ["Kolkata", 200, 80, 120, 30, 15, 0.5, 40],
+    ["Chennai", 180, 70, 100, 25, 12, 0.3, 35]
+]
+
+# Create DataFrame
+df = pd.DataFrame(data_list, columns=["City", "AQI", "PM2.5", "PM10", "NO2", "SO2", "CO", "O3"])
+
+# Display DataFrame in Streamlit
+st.write("## Air Quality of Capital Cities ", df)
+
+# Convert City column to categorical for FacetGrid
+df["City"] = df["City"].astype("category")
+
+# Create FacetGrid using AQI (dividing it into bins)
+df["AQI_Category"] = pd.cut(df["AQI"], bins=[0, 100, 200, 300, 400], labels=["Good", "Moderate", "Unhealthy", "Hazardous"])
+
+# Plot using Seaborn's FacetGrid
+fig = plt.figure(figsize=(8, 6))
+grid = sns.FacetGrid(df, row="City", col="AQI_Category", margin_titles=True)
+grid.map(plt.hist, "PM2.5", bins=np.linspace(0, 200, 15))
+
+# Display plot in Streamlit
+st.pyplot(fig)
+
 
