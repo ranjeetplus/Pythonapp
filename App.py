@@ -100,5 +100,7 @@ df = pd.DataFrame(data_list, columns=["City", "AQI", "PM2.5", "PM10", "NO2", "SO
 st.write("## Air Quality of Capital Cities ", df)
 
 selected_city = st.selectbox("Select a City", list(capital_cities))
-df_data = df[df["City"] == "New Delhi"]
-st.write("## Air Quality of",df_data["City"],"## : ", df_data)
+
+df_data = df[capital_cities[selected_city]]
+st.write("df["City"]", df_data)
+st.bar_chart(df_data.T)
