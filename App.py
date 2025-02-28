@@ -97,6 +97,6 @@ for city, (lat, lon) in capital_cities.items():
 df = pd.DataFrame(data_list, columns=["City", "AQI", "PM2.5", "PM10", "NO2", "SO2", "CO", "O3"])
 
 # Display the DataFrame
-print(df)
+st.write("## Air Quality of Capital Cities ", df)
 
 
